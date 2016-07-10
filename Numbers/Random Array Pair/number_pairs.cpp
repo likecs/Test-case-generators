@@ -33,7 +33,7 @@ int main() {
 	srand(unsigned(time(0)));
 
 	int test_cases = 2;
-	//Comment below line if not number of test cases is not ti be printed
+	//Comment below line if not needed
 	printf("%d\n", test_cases);
 	
 	for(int t=1; t<=test_cases; ++t) {
