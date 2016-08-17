@@ -1,4 +1,4 @@
-//Below code is used to generate array filled with random numbers in specified range
+//Below code is used to generate strings from the particular characters set by user in "user" string
 
 #include <bits/stdc++.h>
 using namespace std;

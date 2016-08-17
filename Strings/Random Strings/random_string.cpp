@@ -1,4 +1,4 @@
-//Below code is used to generate array filled with random numbers in specified range
+//Below code is used to generate random strings consisting of either lowercase or uppercase letters
 
 #include <bits/stdc++.h>
 using namespace std;
