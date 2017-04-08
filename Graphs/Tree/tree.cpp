@@ -1,4 +1,4 @@
-//Below code is used to generate undirected linear graoh
+//Below code is used to generate undirected unweighted tree
 
 #include <bits/stdc++.h>
 using namespace std;
@@ -11,7 +11,6 @@ vector<int> adj[lim_n+1];
 int visited[lim_n+1];
 
 //check whether the graph is connected or not
-//check also every vertex has only 2 vertices connected to it except leaves
 void check_graph(int n) {
 	memset(visited, false, sizeof(visited));
 	queue<int> q;
@@ -34,50 +33,41 @@ void check_graph(int n) {
 	}
 
 	assert(connected);
-
-	int one = 0, two = 0;
-	for(int i=1; i<=n; ++i) {
-		assert(0 < adj[i].size() <= 2);
-		if (adj[i].size() == 1) {
-			one += 1;
-		}
-		else {
-			two += 1;
-		}
-	}
-
-	assert(one == 2);
-	assert(two == n-2);
 }
 
 //Output is space separated vertices pairs which contain an edge
 //There is extra line after every test case
-void generate_unweighted_linear(int n) {
-	vector<int> perm;
+void generate_unweighted_tree(int n) {
+	set< pair<int,int> > duplicates;
 	vector< pair<int,int> > graph;
-	for(int i=1; i<n; ++i) {
+	
+	for(int i=2; i<=n; ++i) {
 		int x = i;
-		int y = i + 1;
+		int y = rand() % (i - 1) + 1;
 		if (i % 10 == 0) {
 			swap(x, y);
 		}
+		assert (1 <= x <= n);
+		assert (1 <= y <= n);
+		assert (x != y);
+		if (duplicates.find(make_pair(x, y)) != duplicates.end()) {
+			i -= 1;
+			continue;
+		}
+		if (duplicates.find(make_pair(y, x)) != duplicates.end()) {
+			i -= 1;
+			continue;
+		}
+		duplicates.insert(make_pair(x, y));
+		adj[x].push_back(y);
+		adj[y].push_back(x);
 		graph.push_back(make_pair(x, y));
-		perm.push_back(i);
 	}
-	perm.push_back(n);
 
-	random_shuffle(perm.begin(), perm.end());
 	random_shuffle(graph.begin(), graph.end());
 
 	for(int i=0; i<n-1; ++i) {
-		int x = perm[graph[i].first - 1];
-		int y = perm[graph[i].second - 1];
-		assert(1 <= x <= n);
-		assert(1 <= y <= n);
-		assert(x != y);
-		printf("%d %d\n", x, y);
-		adj[x].push_back(y);
-		adj[y].push_back(x);
+		printf("%d %d\n", graph[i].first, graph[i].second);
 	}
 
 	//check whether the graph made is connected or not
@@ -104,10 +94,9 @@ int main() {
 	
 		//get random value of "n" between (1, lim_n)
 		int n = rand() % lim_n + 1;
-		//Comment below line if not needed
 		printf("%d\n", n);
 	
-		generate_unweighted_linear(n);
+		generate_unweighted_tree(n);
 	}
 
 	return 0;

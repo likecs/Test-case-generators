@@ -48,7 +48,6 @@ int main() {
 	
 		//get random value of "n" between (1, lim_n)
 		int n = rand() % lim_n + 1;
-		//Comment below line if not needed
 		printf("%d\n", n);
 	
 		generate_unweighted_star(n);

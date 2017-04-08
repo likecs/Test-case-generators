@@ -1,9 +1,9 @@
-#Usage Details
+<h1>Usage Details</h1>
 
-###Variable used
+<h3>Variable used</h3>
 1. lim_n 		= 		maximum size of string desired
 
-###Lines to be modified
+<h3>Lines to be modified</h3>
 * If you do not want the number of test cases in file, comment line number 43
 * If you do not want the size of array to be displayed, comment line number 50
 * To set the number of test cases for the file, set the variable "test_cases" to desired value on line number 41
@@ -11,14 +11,3 @@
 * To make the size of the string a fixed value, set variable "n" to the value desired on line number 48
 * To print the string in all lowercase english characters, comment line number 56
 * To print the string in all lowercase english characters, comment line number 53
-
-
-###Output file name
-By default it is set to "inp.txt".
-
-To change it you can change the name of file on line number 28.
-
-###Success of Execution
-After building the program, if no assertion errors are shown on your screen, file will be generated successfully, provided you put reasonable limits on some variables. For example, maximum array size should be around 10^6 at max.
-
-If any assertion failed errors were seen on your screen while generating the output, do report the error with the screenshot on the Issues Tab. I will try to update the code then.
