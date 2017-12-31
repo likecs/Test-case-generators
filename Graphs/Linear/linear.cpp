@@ -1,4 +1,4 @@
-//Below code is used to generate undirected linear graoh
+//Below code is used to generate undirected linear graph
 
 #include <bits/stdc++.h>
 using namespace std;
